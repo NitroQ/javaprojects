@@ -1,0 +1,57 @@
+import java.util.*;
+class Main {
+  public static void main(String[] args) {
+
+    //Initiates the array list and it's element
+  List<Integer> arrz = new ArrayList<Integer>(Arrays.asList(15, 30, 25, 19, 30, 40));
+    //Calls the method for the arraylist.
+    list(arrz);
+    }
+  public static void list(List<Integer> arrz){
+        //Creates a new method.
+        List<Integer> arr = new ArrayList<Integer>(arrz);
+        //Initiates the variables as well as the scanner input.
+        int  delete ,z;
+        Scanner in = new Scanner(System.in);
+        //Prompts the user for an input
+        System.out.print("\nEnter an element to delete:");
+        delete = in.nextInt();
+    //Creates method to check for the user input, if found, proceed with the program. If not, it prints the string and loops back the program. 
+    if(!isValid(delete, arr)) {
+				System.out.println("Error! No Element Found. ");
+        list(arr);
+			}
+    // If Loop Statement to determine if the array list is now empty, If true, it will end the program.
+    if (arrz.size() <= 1) {
+			System.out.println("Array is Empty");
+      System.exit(0);
+
+      //If the loop is still not empty, prints a new list of the arraylist minus the input of the user.
+		} else {
+        System.out.print("New List: ");
+        for(int i = 0; i < arr.size(); i++){
+    // the for loop will scan for the index of the given selection and deletes it in the arraylist.
+          z =arr.get(i);
+         if (z == delete)
+          arr.remove(i);
+        }
+        //Prints the new Arraylist and them calls the list method to repeat the process.
+      System.out.print(arr);
+      list(arr);
+      }
+    
+  }
+  //Calls the method and checks if the user input is found in the arraylist, if true, proceeds with the program. 
+  public static boolean isValid(int inpt, List<Integer> arr) {
+		boolean valid = false;
+    	for(int i = 0; i < arr.size(); i++) {
+    		if (inpt == arr.get(i)) {
+    			valid = true;
+			}
+		}
+    	return valid;
+	}
+}
+
+//Frank Vincent Gesmundo
+//Ram Henrick Silva

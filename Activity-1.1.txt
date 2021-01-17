@@ -1,0 +1,109 @@
+//includes the package for Scanning user input
+import java.util.Scanner;
+
+//Main Class
+public class Main {
+    //Main Method
+    public static void main(String[] args) {
+  
+  //Declaring Array Values
+	int initArr[] = {15, 30, 25, 19, 12, 40};
+
+  //Calls the removeElement method
+	removeElement(initArr);
+  
+    }
+
+	private static void removeElement(int[] arr) {
+    //Ends the program when the array is already empty
+    	if (arr.length <= 0) {
+			System.out.println("Array is Empty");
+      System.exit(0);
+		} else {
+      //Initializing Scanner
+			Scanner s = new Scanner(System.in);
+
+      //Declaring Variables
+			int index, selection;
+
+      //User Prompt and Scans for Input
+			System.out.print("Remove element from this array: ");
+			selection = s.nextInt();
+      
+      //Calls the isValid method and loops back the program if theres none
+			if(!isValid(selection, arr)) {
+				System.out.println("Error! No Element Found. ");
+        removeElement(arr);
+			}
+
+      //Calls the findIndex method
+			index = findIndex(selection, arr);
+
+      //makes another Array to transfer the data in and initialize its new values
+			int[] newArr = new int[arr.length - 1];
+
+      //Declaring a boolean to check if something changed in the original array
+			boolean didShift = false;
+
+    //Declaring the new Values of the new Array
+			for (int i = 0; i < newArr.length; i++) {
+
+				if (i != index) { //Checks if the index Changed
+
+					if (didShift) { //Checks the didShift boolean 
+						newArr[i] = arr[i + 1]; //if true, the new Values of the old Array will be transferred to the new Array 
+					} else {
+						newArr[i] = arr[i]; //if false the value new Array will be the same as the old one
+					}
+				} else {
+					newArr[i] = arr[index + 1]; //Skips the number if it is the selection
+					didShift = true; //Sets the boolean to true
+				}
+			}
+
+       //Prints the current Array
+      System.out.println(printArray(newArr));
+
+      //Loops back the method by Calling itself
+			removeElement(newArr);
+      
+		}
+	}
+
+  //Gets the index of the element by scanning the array
+	private static int findIndex(int element, int[] arr) {
+    	int idx = 0;
+    	for (int i = 0; i < arr.length; i++) {
+    		if (arr[i] == element) {
+    			idx += i;
+			}
+		}
+    	return idx;
+	}
+//Prints the Array
+	private static String printArray(int[] arr) {
+    	String output = "";
+		for(int i = 0; i < arr.length; i++) {
+			if (i == 0) {
+				output += "New List: " + arr[i] + " ";
+			} else {
+				output += arr[i] + " ";
+			}
+		}
+		return output;
+	}
+
+//Checks if that element/UserInput is in the Array
+	public static boolean isValid(int inpt, int[] arr) {
+		boolean valid = false;
+    	for(int i = 0; i < arr.length; i++) {
+    		if (inpt == arr[i]) {
+    			valid = true;
+			}
+		}
+    	return valid;
+	}
+}
+
+//Ram Henrick Silva
+//Frank Vincent Gesmundo

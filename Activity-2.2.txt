@@ -1,0 +1,25 @@
+public class Main { 
+    public static void main(String[] args) {
+        // Initiate the string subject
+        String line = "the quick brown fox";
+        
+        //initiate the variable for the result
+        String nospace = "";
+        
+        //Converts the Character String into Character Array
+        char[] chars = line.toCharArray();
+        
+        //For Loop to read each character in the string, backwards, to determine if it is a whitespace or not
+        for (int i = line.length() - 1; i >= 0; i--) {
+            //if loop, if the character is NOT a whitespace, concat to char result variable
+            if (chars[i] != ' ') {
+                nospace += line.charAt(i);
+            }        
+        }
+        //SOP to print the result of the program
+        System.out.println(nospace.toUpperCase());
+    }
+}
+
+//Ram Henrick Silva
+//Frank Vincent Gesmundo

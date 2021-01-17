@@ -1,0 +1,74 @@
+ACTIVITY 2.1
+
+public class Main { 
+    public static void main(String[] args) {
+        // Initiate the string subject
+        String line = "the quick brown fox";
+        
+        //initiate the variable for the result
+        String nospace = "";
+        
+        //Converts the Character String into Character Array
+        char[] chars = line.toCharArray();
+        
+        //For Loop to read each character in the string to determine if it is a whitespace or not
+        for (int i = 0; i < line.length(); i++) {
+            //if loop, if the character is NOT a whitespace, concat to char result variable
+            if (chars[i] != ' ') {
+                nospace += line.charAt(i);
+            }        
+        }
+        //SOP to print the result of the program
+        System.out.println(nospace);
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ACTIVITY 2.2
+
+public class Main { 
+    public static void main(String[] args) {
+        // Initiate the string subject
+        String line = "the quick brown fox";
+        
+        //initiate the variable for the result
+        String nospace = "";
+        
+        //Converts the Character String into Character Array
+        char[] chars = line.toCharArray();
+        
+        //For Loop to read each character in the string, backwards, to determine if it is a whitespace or not
+        for (int i = line.length() - 1; i >= 0; i--) {
+            //if loop, if the character is NOT a whitespace, concat to char result variable
+            if (chars[i] != ' ') {
+                nospace += line.charAt(i);
+            }        
+        }
+        //SOP to print the result of the program
+        System.out.println(nospace.toUpperCase());
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+ACTIVITY 2.3
+
+public class Main { 
+    public static void main(String[] args) {
+        // Initiate the string subject
+        String line = "the quick brown fox";
+        
+        //Using substring to get each word to be concatenated
+        String str1 = line.substring(16);
+        String str2 = line.substring(9, 15);
+        String str3 = line.substring(3, 10);
+        String str4 = line.substring(0, 2);
+        
+        //Concatenating all str substrings into output
+        String result = str1 + str2 + str3 + str4;
+        
+        //Printing the output and forcing to Upper Case
+        System.out.println(result.toUpperCase());
+    }
+}
